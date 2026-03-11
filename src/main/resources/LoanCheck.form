@@ -1,55 +1,397 @@
 {
-  "components": [
-    {
-      "label": "customerId",
-      "type": "textfield",
-      "layout": {
-        "row": "Row_1v4sdma",
-        "columns": null
-      },
-      "id": "Field_15g2f2v",
-      "key": "customerId",
-      "readonly": true
-    },
-    {
-      "label": "Score",
-      "type": "textfield",
-      "layout": {
-        "row": "Row_1v4sdma",
-        "columns": null
-      },
-      "id": "Field_1h18t7m",
-      "key": "score",
-      "readonly": "on"
-    },
-    {
-      "label": "Decision on loan",
-      "values": [
-        {
-          "label": "Accept",
-          "value": "true"
-        },
-        {
-          "label": "Reject",
-          "value": "false"
-        }
-      ],
-      "type": "radio",
-      "layout": {
-        "row": "Row_1n2lk8p",
-        "columns": null
-      },
-      "id": "Field_1yamc30",
-      "key": "acceptLoan"
-    }
-  ],
-  "type": "default",
-  "id": "LoanCheck",
   "executionPlatform": "Camunda Cloud",
   "executionPlatformVersion": "8.7.0",
   "exporter": {
-    "name": "Camunda Modeler",
-    "version": "5.34.0"
+    "name": "Camunda Web Modeler",
+    "version": "9b0b274"
   },
-  "schemaVersion": 18
+  "schemaVersion": 19,
+  "id": "LoanCheck",
+  "components": [
+    {
+      "text": "### Business Application Form",
+      "type": "text",
+      "id": "Form-heading",
+      "layout": {
+        "row": "row-1",
+        "col": 16
+      }
+    },
+    {
+      "text": "### Applicant Information",
+      "type": "text",
+      "id": "Applicant-info-heading",
+      "layout": {
+        "row": "row-2",
+        "col": 16
+      }
+    },
+    {
+      "label": "User Name",
+      "type": "textfield",
+      "id": "User-name-field",
+      "key": "userName",
+      "layout": {
+        "row": "row-3",
+        "col": 16
+      },
+      "validate": {
+        "required": true
+      }
+    },
+    {
+      "label": "User Address",
+      "type": "textarea",
+      "id": "User-address-field",
+      "key": "userAddress",
+      "layout": {
+        "row": "row-4",
+        "col": 16
+      },
+      "validate": {
+        "required": true
+      }
+    },
+    {
+      "text": "### Business Information",
+      "type": "text",
+      "id": "Business-info-heading",
+      "layout": {
+        "row": "row-5",
+        "col": 16
+      }
+    },
+    {
+      "label": "Business Name",
+      "type": "textfield",
+      "id": "Business-name-field",
+      "key": "businessName",
+      "layout": {
+        "row": "row-6",
+        "col": 8
+      },
+      "validate": {
+        "required": true
+      }
+    },
+    {
+      "label": "Business Type",
+      "values": [
+        {
+          "label": "LLC",
+          "value": "llc"
+        },
+        {
+          "label": "Corporation",
+          "value": "corporation"
+        },
+        {
+          "label": "Sole Proprietorship",
+          "value": "soleProprietorship"
+        },
+        {
+          "label": "Partnership",
+          "value": "partnership"
+        },
+        {
+          "label": "Other",
+          "value": "other"
+        }
+      ],
+      "type": "select",
+      "id": "Business-type-field",
+      "key": "businessType",
+      "layout": {
+        "row": "row-6",
+        "col": 8
+      },
+      "validate": {
+        "required": true
+      }
+    },
+    {
+      "label": "Description of Business Activities",
+      "type": "textarea",
+      "id": "Business-description-field",
+      "key": "businessDescription",
+      "layout": {
+        "row": "row-7",
+        "col": 16
+      },
+      "validate": {
+        "required": true
+      }
+    },
+    {
+      "subtype": "date",
+      "type": "datetime",
+      "id": "Establishment-date-field",
+      "key": "establishmentDate",
+      "dateLabel": "Date of Establishment",
+      "layout": {
+        "row": "row-8",
+        "col": 8
+      },
+      "validate": {
+        "required": true
+      }
+    },
+    {
+      "label": "Business Website (if any)",
+      "type": "textfield",
+      "id": "Business-website-field",
+      "key": "businessWebsite",
+      "layout": {
+        "row": "row-8",
+        "col": 8
+      }
+    },
+    {
+      "label": "Business Address",
+      "type": "textarea",
+      "id": "Business-address-field",
+      "key": "businessAddress",
+      "layout": {
+        "row": "row-9",
+        "col": 16
+      },
+      "validate": {
+        "required": true
+      }
+    },
+    {
+      "text": "### Owner's Information",
+      "type": "text",
+      "id": "Owner-info-heading",
+      "layout": {
+        "row": "row-10",
+        "col": 16
+      }
+    },
+    {
+      "label": "Full Name",
+      "type": "textfield",
+      "id": "Owner-name-field",
+      "key": "ownerFullName",
+      "layout": {
+        "row": "row-11",
+        "col": 6
+      },
+      "validate": {
+        "required": true
+      }
+    },
+    {
+      "label": "Phone Number",
+      "type": "textfield",
+      "id": "Owner-phone-field",
+      "key": "ownerPhone",
+      "layout": {
+        "row": "row-11",
+        "col": 5
+      },
+      "validate": {
+        "required": true
+      }
+    },
+    {
+      "label": "Email Address",
+      "type": "textfield",
+      "id": "Owner-email-field",
+      "key": "ownerEmail",
+      "layout": {
+        "row": "row-11",
+        "col": 5
+      },
+      "validate": {
+        "required": true
+      }
+    },
+    {
+      "label": "Residential Address",
+      "type": "textarea",
+      "id": "Owner-address-field",
+      "key": "ownerAddress",
+      "layout": {
+        "row": "row-12",
+        "col": 16
+      },
+      "validate": {
+        "required": true
+      }
+    },
+    {
+      "text": "### Additional Information",
+      "type": "text",
+      "id": "Additional-info-heading",
+      "layout": {
+        "row": "row-13",
+        "col": 16
+      }
+    },
+    {
+      "label": "Federal Employer Identification Number (EIN)",
+      "type": "textfield",
+      "id": "Ein-field",
+      "key": "ein",
+      "layout": {
+        "row": "row-14",
+        "col": 6
+      },
+      "validate": {
+        "required": true
+      }
+    },
+    {
+      "label": "State Tax ID Number",
+      "type": "textfield",
+      "id": "State-tax-id-field",
+      "key": "stateTaxId",
+      "layout": {
+        "row": "row-14",
+        "col": 5
+      }
+    },
+    {
+      "label": "NAICS Code",
+      "type": "textfield",
+      "id": "Naics-code-field",
+      "key": "naicsCode",
+      "layout": {
+        "row": "row-14",
+        "col": 5
+      }
+    },
+    {
+      "text": "### Required Licenses and Permits",
+      "type": "text",
+      "id": "Licenses-heading",
+      "layout": {
+        "row": "row-15",
+        "col": 16
+      }
+    },
+    {
+      "text": "Check all that apply. Required licenses depend on the nature of the business.",
+      "type": "text",
+      "id": "Licenses-description",
+      "layout": {
+        "row": "row-16",
+        "col": 16
+      }
+    },
+    {
+      "label": "Health Department Permit (for restaurants, etc.)",
+      "type": "checkbox",
+      "id": "Health-permit-field",
+      "key": "healthPermit",
+      "layout": {
+        "row": "row-17",
+        "col": 16
+      }
+    },
+    {
+      "label": "Seller's Permit",
+      "type": "checkbox",
+      "id": "Sellers-permit-field",
+      "key": "sellersPermit",
+      "layout": {
+        "row": "row-18",
+        "col": 16
+      }
+    },
+    {
+      "label": "Zoning and Land Use Permits",
+      "type": "checkbox",
+      "id": "Zoning-permit-field",
+      "key": "zoningPermit",
+      "layout": {
+        "row": "row-19",
+        "col": 16
+      }
+    },
+    {
+      "label": "Professional or Trade Licenses",
+      "type": "checkbox",
+      "id": "Trade-license-field",
+      "key": "tradeLicense",
+      "layout": {
+        "row": "row-20",
+        "col": 16
+      }
+    },
+    {
+      "text": "### Emergency Contact Information",
+      "type": "text",
+      "id": "Emergency-contact-heading",
+      "layout": {
+        "row": "row-21",
+        "col": 16
+      }
+    },
+    {
+      "label": "Emergency Contact Name",
+      "type": "textfield",
+      "id": "Emergency-name-field",
+      "key": "emergencyContactName",
+      "layout": {
+        "row": "row-22",
+        "col": 8
+      },
+      "validate": {
+        "required": true
+      }
+    },
+    {
+      "label": "Emergency Contact Phone Number",
+      "type": "textfield",
+      "id": "Emergency-phone-field",
+      "key": "emergencyContactPhone",
+      "layout": {
+        "row": "row-22",
+        "col": 8
+      },
+      "validate": {
+        "required": true
+      }
+    },
+    {
+      "text": "### Signature",
+      "type": "text",
+      "id": "Signature-heading",
+      "layout": {
+        "row": "row-23",
+        "col": 16
+      }
+    },
+    {
+      "label": "Applicant's Signature",
+      "type": "textfield",
+      "id": "Signature-field",
+      "key": "applicantSignature",
+      "layout": {
+        "row": "row-24",
+        "col": 8
+      },
+      "validate": {
+        "required": true
+      }
+    },
+    {
+      "subtype": "date",
+      "type": "datetime",
+      "id": "Signature-date-field",
+      "key": "signatureDate",
+      "dateLabel": "Date",
+      "layout": {
+        "row": "row-24",
+        "col": 8
+      },
+      "validate": {
+        "required": true
+      }
+    }
+  ],
+  "generated": true,
+  "type": "default"
 }
