@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:zeebe="http://camunda.org/schema/zeebe/1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:modeler="http://camunda.org/schema/modeler/1.0" id="Definitions_1q4m02f" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Web Modeler" exporterVersion="9b0b274" modeler:executionPlatform="Camunda Cloud" modeler:executionPlatformVersion="8.8.0">
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:zeebe="http://camunda.org/schema/zeebe/1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:modeler="http://camunda.org/schema/modeler/1.0" id="Definitions_1q4m02f" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Web Modeler" exporterVersion="0e2f930" modeler:executionPlatform="Camunda Cloud" modeler:executionPlatformVersion="8.8.0">
   <bpmn:process id="LoanApplication" isExecutable="true">
     <bpmn:extensionElements>
       <zeebe:versionTag value="5.0" />
@@ -63,14 +63,6 @@
       <bpmn:incoming>Flow_CheckUser</bpmn:incoming>
       <bpmn:outgoing>Flow_1yjboy3</bpmn:outgoing>
     </bpmn:userTask>
-    <bpmn:serviceTask id="AcceptLoan" name="Accept Loan">
-      <bpmn:extensionElements>
-        <zeebe:taskDefinition type="accept-loan" />
-      </bpmn:extensionElements>
-      <bpmn:incoming>Flow_Accepted</bpmn:incoming>
-      <bpmn:incoming>Flow_1di2y7a</bpmn:incoming>
-      <bpmn:outgoing>Flow_0fikvcg</bpmn:outgoing>
-    </bpmn:serviceTask>
     <bpmn:sequenceFlow id="Flow_1fraqa2" sourceRef="Gateway_0dh9fik" targetRef="RejectLoan" />
     <bpmn:serviceTask id="RejectLoan" name="Reject loan">
       <bpmn:extensionElements>
@@ -92,6 +84,14 @@
       </bpmn:endEvent>
       <bpmn:sequenceFlow id="Flow_1qzl0t3" sourceRef="Event_0gsq3ea" targetRef="Event_0213w5g" />
     </bpmn:subProcess>
+    <bpmn:callActivity id="AcceptLoan" name="Accept Loan">
+      <bpmn:extensionElements>
+        <zeebe:calledElement propagateAllChildVariables="false" />
+      </bpmn:extensionElements>
+      <bpmn:incoming>Flow_Accepted</bpmn:incoming>
+      <bpmn:incoming>Flow_1di2y7a</bpmn:incoming>
+      <bpmn:outgoing>Flow_0fikvcg</bpmn:outgoing>
+    </bpmn:callActivity>
   </bpmn:process>
   <bpmndi:BPMNDiagram id="BPMNDiagram_1">
     <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="LoanApplication">
@@ -138,12 +138,11 @@
       <bpmndi:BPMNShape id="Activity_1e44p43_di" bpmnElement="CheckManualLoan">
         <dc:Bounds x="530" y="230" width="100" height="80" />
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Activity_14qorc6_di" bpmnElement="AcceptLoan">
-        <dc:Bounds x="740" y="140" width="100" height="80" />
-        <bpmndi:BPMNLabel />
-      </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Activity_06dmblc_di" bpmnElement="RejectLoan">
         <dc:Bounds x="740" y="350" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1x9jdyz_di" bpmnElement="AcceptLoan">
+        <dc:Bounds x="740" y="140" width="100" height="80" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Activity_0lowv1n_di" bpmnElement="Activity_1nntsk6" isExpanded="true">
         <dc:Bounds x="1070" y="280" width="350" height="200" />
